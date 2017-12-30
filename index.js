@@ -17,12 +17,16 @@ function forkWorker () {
 let nc = new NetcatServer()
 let workers = {}
 
-nc.k().port(2389).listen().on('connection', function(socket){
-  console.log(`${socket.id} connected`)
-  let worker = workers[socket.id] = forkWorker()
-  socket.pipe(worker.stdin)
-  worker.stdout.pipe(socket)
-}).on('clientClose', function(socket){
-  console.log(`${socket.id} disconnected`)
-  workers[socket.id].kill()
-})
+exports.listen = function (port) {
+
+  nc.k().port(port).listen().on('connection', function(socket){
+    console.log(`${socket.id} connected`)
+    let worker = workers[socket.id] = forkWorker()
+    socket.pipe(worker.stdin)
+    worker.stdout.pipe(socket)
+  }).on('clientClose', function(socket){
+    console.log(`${socket.id} disconnected`)
+    workers[socket.id].kill()
+  })
+
+}
