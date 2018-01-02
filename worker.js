@@ -1,6 +1,6 @@
 const repl = require('repl')
 
-console.log('worker started')
+console.log('REPL worker started')
 
 let replServer = repl.start('> ')
 
