@@ -11,10 +11,13 @@ Netcat-based js REPL worker
 ```javascript
 const nr = require('netcat-repl')
 
-nr.listen(2389)
+nr({
+  port: 2389,
+  verbose: true
+})
 ```
 
-Then just do a `telnet localhost 2389` to get a live remote JS REPL (Read-Eval-Print-Loop) shell.
+Then just do a `telnet localhost 2389` to get an interactive remote JS REPL (Read-Eval-Print-Loop) shell.
 
 ## Author
 
