@@ -9,7 +9,6 @@ replServer.on('exit', () => {
   process.exit()
 })
 
-replServer.on('reset', function(){
+replServer.on('reset', function () {
   console.log('context reset')
 })
-
