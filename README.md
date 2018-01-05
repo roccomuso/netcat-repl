@@ -1,5 +1,9 @@
 # netcat-repl
-Netcat-based js REPL worker
+
+[![NPM Version](https://img.shields.io/npm/v/netcat-repl.svg)](https://www.npmjs.com/package/netcat-repl)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+> Netcat-based js REPL worker
 
 
 ## Install
