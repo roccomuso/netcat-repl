@@ -2,10 +2,10 @@ const NetcatServer = require('netcat').server
 const {fork} = require('child_process')
 function noop () {}
 
-console.log('Started!')
+const WORKER_SCRIPT = './worker.js'
 
 function forkWorker () {
-  return fork('./worker.js', {
+  return fork(WORKER_SCRIPT, {
     stdio: [
       'pipe',
       'pipe', // Pipe child's stdout to parent
@@ -22,6 +22,7 @@ module.exports = function ({verbose, port}) {
   if (!verbose) console.log = noop
   port = port || process.env.PORT
 
+  console.log('Started!')
   nc.k().port(port).listen().on('connection', function (socket) {
     console.log(`${socket.remoteAddress}:${socket.remotePort} (${socket.id}) - connected`)
     let worker = workers[socket.id] = forkWorker()
