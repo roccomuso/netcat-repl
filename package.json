@@ -23,6 +23,6 @@
     "url": "https://github.com/roccomuso/netcat-repl/issues"
   },
   "dependencies": {
-    "netcat": "^1.3.6"
+    "netcat": "^1.4.0"
   }
 }
