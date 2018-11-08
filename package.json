@@ -1,6 +1,6 @@
 {
   "name": "netcat-repl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Netcat-based js REPL worker",
   "main": "index.js",
   "scripts": {
